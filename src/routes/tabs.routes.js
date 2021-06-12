@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import DailyMeeting from '../pages/DailyMeeting';
 import Profile from '../pages/Profile';
 import ShareLink from '../pages/ShareLink';
-import {theme} from '../styles/theme';
+import {colors} from '../styles/theme';
 
 const Tab = createBottomTabNavigator();
 
@@ -13,17 +13,23 @@ export default function BottomTabs() {
     <Tab.Navigator
       initialRouteName="Daily"
       tabBarOptions={{
-        style: {backgroundColor: theme.backgroundMedium},
-        activeTintColor: theme.primary,
-        inactiveTintColor: theme.backgroundLight,
+        style: {
+          backgroundColor: colors.backgroundDark,
+          borderTopColor: colors.backgroundMedium,
+        },
+        activeTintColor: colors.primary,
+        inactiveTintColor: colors.backgroundLight,
+        labelStyle: {
+          fontSize: 12,
+        },
       }}>
       <Tab.Screen
         name="Daily"
         component={DailyMeeting}
         options={{
           tabBarLabel: 'Daily Meeting',
-          tabBarIcon: ({color, size}) => (
-            <Icon name="account-group" color={color} size={size} />
+          tabBarIcon: ({color}) => (
+            <Icon name="account-group" color={color} size={30} />
           ),
         }}
       />
@@ -32,8 +38,8 @@ export default function BottomTabs() {
         component={Profile}
         options={{
           tabBarLabel: 'Perfil',
-          tabBarIcon: ({color, size}) => (
-            <Icon name="account-edit" color={color} size={size} />
+          tabBarIcon: ({color}) => (
+            <Icon name="account-edit" color={color} size={30} />
           ),
         }}
       />
@@ -42,8 +48,8 @@ export default function BottomTabs() {
         component={ShareLink}
         options={{
           tabBarLabel: 'Compartilhar',
-          tabBarIcon: ({color, size}) => (
-            <Icon name="share" color={color} size={size} />
+          tabBarIcon: ({color}) => (
+            <Icon name="share" color={color} size={30} />
           ),
         }}
       />
